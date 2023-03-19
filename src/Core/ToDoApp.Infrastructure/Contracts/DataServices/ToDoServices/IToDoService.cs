@@ -9,6 +9,6 @@ namespace ToDoApp.Application.Contracts.DataServices.ToDoServices
 {
     public interface IToDoService
     {
-        Task<List<ToDoItem>> GetAllToDoItems();
+        Task<IEnumerable<ToDoItem>> GetAllToDoItems();
     }
 }

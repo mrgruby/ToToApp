@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ToDoApp.Application.Contracts.DataServices.ToDoServices;
-using ToDoApp.Persistence.DataServices.ToDoServices;
+using ToDoApp.Application.Contracts.Repositories;
+using ToDoApp.Application.Implementation.DataServices.ToDoServices;
+using ToDoApp.Persistence.Implementation.Repositories;
 
 namespace ToDoApp.Persistence
 {
@@ -26,8 +28,9 @@ namespace ToDoApp.Persistence
             //services.AddDbContext<ToDoDbContext>(opt => opt.UseInMemoryDatabase("ToDoInMem"));
 
             services.AddScoped<IToDoService, ToDoService>();
-            //services.AddScoped<ToDoDbContext, ToDoDbContext>();
-            
+            services.AddScoped<IToDoRepository, ToDoRepository>();
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
 
             return services;
         }

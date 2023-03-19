@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ToDoApp.Application.Contracts.DataServices.ToDoServices;
 using ToDoApp.Application.Dto;
@@ -10,10 +11,12 @@ namespace ToDoApp.Api.Controllers
     public class ToDoController : ControllerBase
     {
         private readonly IToDoService _toDoService;
+        private readonly IMapper _mapper;
 
-        public ToDoController(IToDoService toDoService)
+        public ToDoController(IToDoService toDoService, IMapper mapper)
         {
             _toDoService = toDoService;
+            _mapper = mapper;
         }
 
         [HttpGet("GetAllToDoItems")]
