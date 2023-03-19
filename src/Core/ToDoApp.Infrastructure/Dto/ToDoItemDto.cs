@@ -9,8 +9,9 @@ namespace ToDoApp.Application.Dto
 {
     public class ToDoItemDto
     {
+        public int ToDoItemId { get; set; }
         public string ToDoItemName { get; set; } = string.Empty;
-
-        public List<ToDoItem> ToDoItems { get; set; } = new List<ToDoItem>();
+        public string ToDoDescription { get; set; } = string.Empty;
+        public bool ToDoIsDone { get; set; }
     }
 }

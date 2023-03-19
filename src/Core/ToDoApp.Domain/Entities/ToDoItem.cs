@@ -12,6 +12,5 @@ namespace ToDoApp.Domain.Entities
         public string ToDoItemName { get; set; } = string.Empty;
         public string ToDoDescription { get; set; } = string.Empty;
         public bool ToDoIsDone { get; set; } 
-        public List<ToDoItem> ToDoItems { get; set; } = new List<ToDoItem>();
     }
 }
