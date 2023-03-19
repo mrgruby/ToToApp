@@ -1,11 +1,7 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using ToDoApp.Application.Contracts.DataServices.ToDoServices;
 using ToDoApp.Application.Dto;
-using ToDoApp.Application.Responses;
-using ToDoApp.Domain.Entities;
 
 namespace ToDoApp.Api.Controllers
 {
@@ -26,7 +22,7 @@ namespace ToDoApp.Api.Controllers
             var response = await _toDoService.GetAllToDoItems();
 
             if (response == null)
-                return NotFound();
+                return BadRequest("The list of ToDo items is not available.");
             return Ok(response);
         }
 
@@ -36,7 +32,7 @@ namespace ToDoApp.Api.Controllers
             var response = await _toDoService.GetToDoItem(id);
 
             if (response == null)
-                return NotFound();
+                return NotFound("The requested ToDo item was not found.");
             return Ok(response);
         }
 

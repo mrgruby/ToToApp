@@ -50,7 +50,7 @@ namespace ToDoApp.Application.Implementation.DataServices.ToDoServices
                 response.Message = "ToDoItem to delete not found!";
             }
 
-            if (response.Success)
+            if (toDoToUpdate != null && response.Success)
                 _repository.Delete(toDoToUpdate);
 
             return response;
@@ -80,7 +80,7 @@ namespace ToDoApp.Application.Implementation.DataServices.ToDoServices
                 response.Message = "ToDoItem to update not found!";
             }
 
-            if (response.Success)
+            if (toDoToUpdate != null && response.Success)
             {
                 _mapper.Map(toDoItemDto, toDoToUpdate);
 
