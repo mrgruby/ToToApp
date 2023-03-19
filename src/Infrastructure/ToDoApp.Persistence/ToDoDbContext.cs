@@ -23,43 +23,33 @@ namespace ToDoApp.Persistence
             modelBuilder.Entity<ToDoItem>().HasData(new ToDoItem
             {
                 ToDoItemId = 1,
-                ToDoItemName = "MyFirstTodo",
+                ToDoItemName = "First Todo",
+                ToDoDescription = "First Todo description",
                 ToDoIsDone = false,
             });
             modelBuilder.Entity<ToDoItem>().HasData(new ToDoItem
             {
                 ToDoItemId = 2,
-                ToDoItemName = "MySecondTodo",
+                ToDoItemName = "Second Todo",
+                ToDoDescription = "Second Todo description",
                 ToDoIsDone = false,
             });
             modelBuilder.Entity<ToDoItem>().HasData(new ToDoItem
             {
                 ToDoItemId = 3,
-                ToDoItemName = "MyThirdTodo",
+                ToDoItemName = "Third Todo",
+                ToDoDescription = "Third Todo description",
                 ToDoIsDone = false,
             });
             modelBuilder.Entity<ToDoItem>().HasData(new ToDoItem
             {
                 ToDoItemId = 4,
-                ToDoItemName = "MyFourthTodo",
+                ToDoItemName = "Fourth Todo",
+                ToDoDescription = "Fourth Todo description",
                 ToDoIsDone = false,
             });
         }
 
-        //protected readonly IConfiguration Configuration;
-        //public ToDoDbContext(IConfiguration configuration)
-        //{
-        //    Configuration = configuration;
-        //}
-
-            //protected override void OnConfiguring(DbContextOptionsBuilder options)
-            //{
-            //    // in memory database used for simplicity, change to a real db for production applications
-            //    options.UseInMemoryDatabase("ToDoInMem");
-            //}
-
         public DbSet<ToDoItem> ToDoItems { get; set; }
-        //public DbSet<ToDoList> ToDoLists { get; set; }
-
     }
 }

@@ -14,12 +14,10 @@ namespace ToDoApp.Api.Controllers
     public class ToDoController : ControllerBase
     {
         private readonly IToDoService _toDoService;
-        private readonly IMapper _mapper;
 
-        public ToDoController(IToDoService toDoService, IMapper mapper)
+        public ToDoController(IToDoService toDoService)
         {
             _toDoService = toDoService;
-            _mapper = mapper;
         }
 
         [HttpGet("GetAllToDoItems")]
@@ -47,7 +45,7 @@ namespace ToDoApp.Api.Controllers
         {
             var response = await _toDoService.CreateToDoItem(toDoItem);
 
-            if (response.Success)
+            if (response.Data != null && response.Success)
                 return CreatedAtRoute("GetToDoItemById", new { id = response.Data.ToDoItemId}, response.Data);
             else
                 return BadRequest($"Failed to save ToDoItem");

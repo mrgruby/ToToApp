@@ -14,9 +14,8 @@ using ToDoApp.Persistence.Implementation.Repositories;
 namespace ToDoApp.Persistence
 {
     /// <summary>
-    /// This class extends the service collection, which is normally found in the Startup.cs class. This class is not available here, 
-    /// since this is clean architecture. This is for service registration. Here, we add support for dependency injection. We also add the DbContext, 
-    /// and specify that we will use SqlServer. Finally, the connectionstring is registered.
+    /// This class extends the service collection, which is normally found in Startup.cs. Here, we add support for dependency injection. 
+    /// We also add the DbContext, and specify that we will use SqlServer. Finally, the connectionstring is registered.
     /// </summary>
     public static class PersistenceServiceRegistration
     {
@@ -25,8 +24,7 @@ namespace ToDoApp.Persistence
             services.AddDbContext<ToDoDbContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("ToDoConnectionString")));
 
-            //services.AddDbContext<ToDoDbContext>(opt => opt.UseInMemoryDatabase("ToDoInMem"));
-
+            //Set up DI
             services.AddScoped<IToDoService, ToDoService>();
             services.AddScoped<IToDoRepository, ToDoRepository>();
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));

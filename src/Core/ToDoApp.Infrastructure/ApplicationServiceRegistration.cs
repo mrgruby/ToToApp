@@ -14,6 +14,7 @@ namespace ToDoApp.Application
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
+            //Set up DI
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IToDoService, ToDoService>();
 
