@@ -9,6 +9,5 @@ namespace ToDoApp.Application.Contracts.Repositories
 {
     public interface IToDoRepository : IGenericRepository<ToDoItem>
     {
-        Task<ToDoItem> CompleteToDoItem(ToDoItem item);
     }
 }

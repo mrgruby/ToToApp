@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,14 +11,11 @@ namespace ToDoApp.Persistence.Implementation.Repositories
 {
     public class ToDoRepository : GenericRepository<ToDoItem>, IToDoRepository
     {
+        private readonly ToDoDbContext _dbContext;
+
         public ToDoRepository(ToDoDbContext dbContext) : base(dbContext)
         {
-
-        }
-
-        public Task<ToDoItem> CompleteToDoItem(ToDoItem item)
-        {
-            throw new NotImplementedException();
+            _dbContext = dbContext;
         }
     }
 }
